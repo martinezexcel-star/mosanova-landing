@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MosaNova Studio | Coaching y arte para volver a vos</title>
+  <meta name="description" content="Coaching y arte para acompañarte en momentos de cambio, claridad y transformación personal. Reservá tu sesión online en MosaNova Studio." />
+  <meta name="keywords" content="coaching online, life coach, transformación personal, claridad, arte abstracto, sesiones online, MosaNova Studio, Andrea Martinez" />
+  <meta name="author" content="MosaNova Studio" />
+
+  <style>
+    :root {
+      --bg: #0f0f10;
+      --bg-soft: #17181a;
+      --panel: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      --panel-strong: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.03));
+      --text: #f3f3f1;
+      --muted: #b8b8b4;
+      --line: rgba(255,255,255,0.09);
+      --accent: #d9d9d4;
+      --accent-dark: #9b9b96;
+      --shadow: 0 18px 48px rgba(0,0,0,0.35);
+      --max: 1180px;
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.06), transparent 20%),
+        radial-gradient(circle at bottom right, rgba(255,255,255,0.04), transparent 18%),
+        linear-gradient(180deg, #0d0d0e 0%, #131416 45%, #101112 100%);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(92%, var(--max));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 84px 0;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      font-size: clamp(30px, 4vw, 52px);
+      line-height: 1.05;
+      margin-bottom: 18px;
+      font-weight: 700;
+    }
+
+    .section-text {
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 760px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 24px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      font-weight: 600;
+      font-size: 15px;
+      transition: 0.22s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(180deg, #eeeeea, #d2d2cb);
+      color: #111;
+      border-color: transparent;
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.16);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: rgba(15,15,16,0.82);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .brand-name {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-subtitle {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    /* 1. BRAND + 2. HERO */
+    .hero {
+      padding: 74px 0 56px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .hero-copy h1 {
+      font-size: clamp(40px, 6vw, 74px);
+      line-height: 0.95;
+      margin-bottom: 18px;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-copy .subheadline {
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 680px;
+      margin-bottom: 26px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .hero-bullets {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-bullet {
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .hero-visual {
+      min-height: 560px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 30px;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0)),
+        linear-gradient(135deg, #1a1b1e 0%, #0f1012 45%, #232427 100%);
+    }
+
+    .hero-visual::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.12), transparent 20%),
+        radial-gradient(circle at 80% 30%, rgba(255,255,255,0.08), transparent 18%),
+        linear-gradient(180deg, rgba(0,0,0,0.16), rgba(0,0,0,0.48));
+      opacity: 0.9;
+    }
+
+    .profile-wrap {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      z-index: 2;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .profile-ring {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      padding: 8px;
+      border: 2px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.04);
+      margin: 0 auto 22px;
+    }
+
+    .profile-photo {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center 25%;
+	border-radius: 50%;
+}
+
+    .profile-caption {
+      color: var(--accent);
+      text-transform: uppercase;
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      margin-bottom: 10px;
+    }
+
+    .profile-name {
+      font-size: 34px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .profile-role {
+      color: var(--muted);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+
+    /* 3. SOCIAL PROOF */
+    .proof-grid {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .proof-card {
+      padding: 24px;
+    }
+
+    .proof-card h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .proof-card p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    /* 4. ABOUT */
+    .about-grid {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .about-copy,
+    .about-points {
+      padding: 28px;
+    }
+
+    .about-copy p {
+      color: var(--muted);
+      margin-bottom: 16px;
+      font-size: 16px;
+    }
+
+    .about-points ul {
+      list-style: none;
+      display: grid;
+      gap: 16px;
+    }
+
+    .about-points li {
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    .about-points strong {
+      display: block;
+      color: var(--text);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 4px;
+    }
+
+    /* 5. SERVICES */
+    .services-grid {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .service-card {
+      padding: 28px;
+    }
+
+    .service-card h3 {
+      font-size: 26px;
+      line-height: 1.05;
+      margin-bottom: 14px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      margin-bottom: 18px;
+      font-size: 15px;
+    }
+
+    .service-benefits {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .service-benefits li {
+      color: var(--muted);
+      font-size: 14px;
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .service-benefits li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    .service-price {
+      font-size: 14px;
+      color: var(--accent-dark);
+      margin-bottom: 18px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* 6. PROCESS */
+    .process-grid {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .process-card {
+      padding: 24px;
+    }
+
+    .step-number {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      color: var(--accent);
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+
+    .process-card h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .process-card p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    /* 7. OPTIONAL SECTIONS */
+    .optional-grid {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 22px;
+    }
+
+    .optional-card {
+      padding: 28px;
+    }
+
+    .art-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .art-item {
+      min-height: 180px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+    }
+
+    .philosophy-list {
+      list-style: none;
+      display: grid;
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .philosophy-list li {
+      color: var(--muted);
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .philosophy-list li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    /* 8. CTA SECTION */
+    .cta-section .cta-box {
+      padding: 34px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+      background: var(--panel-strong);
+    }
+
+    .cta-copy h2 {
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.05;
+      margin-bottom: 12px;
+    }
+
+    .cta-copy p {
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    /* 9. CONTACT */
+    .contact-grid {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 22px;
+    }
+
+    .contact-card {
+      padding: 28px;
+    }
+
+    .contact-text {
+      color: var(--muted);
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+
+    .contact-item {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .contact-label {
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 6px;
+    }
+
+    .contact-value {
+      font-size: 19px;
+      font-weight: 600;
+      word-break: break-word;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    /* 10. FOOTER */
+    .site-footer {
+      border-top: 1px solid var(--line);
+      padding: 24px 0 42px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .about-grid,
+      .optional-grid,
+      .contact-grid,
+      .services-grid,
+      .process-grid,
+      .proof-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero-visual {
+        min-height: 500px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .section {
+        padding: 70px 0;
+      }
+
+      .hero {
+        padding-top: 46px;
+      }
+
+      .profile-ring {
+        width: 220px;
+        height: 220px;
+      }
+
+      .profile-name {
+        font-size: 28px;
+      }
+
+      .hero-copy h1 {
+        font-size: 44px;
+      }
+
+      .art-gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav">
+      <!-- 1. BRAND -->
+      <a href="#top" class="brand">
+        <span class="brand-name">MosaNova Studio</span>
+        <span class="brand-subtitle">Coaching y arte para volver a vos</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#about">Sobre mí</a>
+        <a href="#services">Servicios</a>
+        <a href="#process">Proceso</a>
+        <a href="#art">Arte</a>
+        <a href="#contact">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- 2. HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Sesiones online de acompañamiento personal</span>
+          <h1>Volver a vos para crear la vida que querés.</h1>
+          <p class="subheadline">
+            Acompaño a personas en momentos de cambio que buscan ordenar, aclarar y redefinir aspectos de su vida. Mi enfoque combina herramientas prácticas de desarrollo personal con una mirada sensible y humana, para generar mayor claridad, coherencia y dirección.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://outlook.office.com/book/MosaNovaStudioSesiones@maginaconsulting.com/?ismsaljsauthenabled" target="_blank" rel="noopener noreferrer">Reservar sesión</a>
+            <a class="btn btn-secondary" href="https://wa.me/5491169837841?text=Hola%20Andrea,%20vi%20tu%20p%C3%A1gina%20y%20me%20gustar%C3%ADa%20consultarte%20por%20una%20sesi%C3%B3n%20o%20hacerte%20una%20pregunta." target="_blank" rel="noopener noreferrer">Escribirme por WhatsApp</a>
+          </div>
+
+          <div class="hero-bullets">
+            <span class="hero-bullet">Claridad personal</span>
+            <span class="hero-bullet">Sesiones 1:1</span>
+            <span class="hero-bullet">Arte con identidad</span>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="profile-wrap">
+            <div class="profile-ring">
+              <img src="assets/profile.jpg" alt="Andrea de MosaNova Studio" class="profile-photo">
+            </div>
+            <div class="profile-caption">Coaching y arte</div>
+            <div class="profile-name">Andrea Martinez</div>
+            <div class="profile-role">Life Coach & Artist</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. SOCIAL PROOF -->
+    <section class="section">
+      <div class="container">
+        <span class="eyebrow">Beneficios clave</span>
+        <h2 class="section-title">Un espacio claro, humano y orientado al movimiento.</h2>
+        <p class="section-text">
+          Este acompañamiento está pensado para quienes necesitan orden interno, nuevas perspectivas y un espacio real para avanzar con más coherencia.
+        </p>
+
+        <div class="proof-grid">
+          <div class="card proof-card">
+            <h3>Más claridad</h3>
+            <p>Ordenar lo que te pasa, entender mejor tu momento actual y mirar tu proceso con más perspectiva.</p>
+          </div>
+
+          <div class="card proof-card">
+            <h3>Decisiones más conscientes</h3>
+            <p>Salir de la confusión, reenfocarte y avanzar con mayor dirección en lo personal o profesional.</p>
+          </div>
+
+          <div class="card proof-card">
+            <h3>Un enfoque realista</h3>
+            <p>Sin procesos eternos ni complejidad innecesaria: un acompañamiento claro, práctico y sensible.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. ABOUT -->
+    <section id="about" class="section">
+      <div class="container">
+        <span class="eyebrow">Sobre mí</span>
+        <h2 class="section-title">Coaching y arte como caminos para reconectar con tu esencia.</h2>
+        <p class="section-text">
+          Soy life coach y artista. Desde hace más de seis años acompaño a personas en momentos de cambio que buscan ordenar, aclarar y redefinir distintos aspectos de su vida.
+        </p>
+
+        <div class="about-grid">
+          <div class="card about-copy">
+            <p>
+              Trabajo con quienes quieren destrabar situaciones, tomar decisiones o reenfocarse, sin procesos largos ni complejos. También acompaño a quienes buscan un propósito o una mayor alineación con su esencia.
+            </p>
+            <p>
+              La creatividad es parte esencial de mi identidad, y la expreso a través de la pintura abstracta. Para mí, transformar la vida también implica abrir espacio a una mirada más sensible, más auténtica y más conectada con lo que cada persona necesita.
+            </p>
+          </div>
+
+          <div class="card about-points">
+            <ul>
+              <li>
+                <strong>Enfoque</strong>
+                Herramientas prácticas de desarrollo personal aplicadas con claridad, escucha y sensibilidad.
+              </li>
+              <li>
+                <strong>Experiencia</strong>
+                Más de seis años acompañando procesos de cambio, redefinición y crecimiento personal.
+              </li>
+              <li>
+                <strong>Diferencial</strong>
+                Integro coaching y arte desde una propuesta personal, humana y con identidad propia.
+              </li>
+              <li>
+                <strong>Objetivo</strong>
+                Ayudarte a volver a vos, ordenar tu momento y crear una vida con más coherencia y dirección.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. SERVICES -->
+    <section id="services" class="section">
+      <div class="container">
+        <span class="eyebrow">Servicios</span>
+        <h2 class="section-title">Acompañamiento personal y arte con identidad.</h2>
+        <p class="section-text">
+          Estos servicios están pensados para personas que están atravesando un momento de cambio, búsqueda o necesidad de mayor claridad.
+        </p>
+
+        <div class="services-grid">
+          <div class="card service-card">
+            <h3>Sesión individual de coaching</h3>
+            <p>
+              Un espacio personalizado para trabajar lo que hoy necesitás ordenar, aclarar o transformar.
+            </p>
+            <ul class="service-benefits">
+              <li>Claridad sobre tu situación actual</li>
+              <li>Apoyo para tomar decisiones</li>
+              <li>Un espacio enfocado en vos y tu proceso</li>
+            </ul>
+            <div class="service-price">Valor: consultar</div>
+            <a class="btn btn-primary" href="https://outlook.office.com/book/MosaNovaStudioSesiones@maginaconsulting.com/?ismsaljsauthenabled" target="_blank" rel="noopener noreferrer">Reservar</a>
+          </div>
+
+          <div class="card service-card">
+            <h3>Proceso de acompañamiento</h3>
+            <p>
+              Para quienes necesitan un trabajo más sostenido en el tiempo y quieren avanzar con más profundidad y continuidad.
+            </p>
+            <ul class="service-benefits">
+              <li>Seguimiento más consistente</li>
+              <li>Mayor profundidad en el proceso</li>
+              <li>Espacio para sostener cambios reales</li>
+            </ul>
+            <div class="service-price">Valor: consultar</div>
+            <a class="btn btn-primary" href="https://wa.me/5491169837841?text=Hola%20Andrea,%20vi%20tu%20p%C3%A1gina%20y%20me%20gustar%C3%ADa%20consultarte%20por%20tu%20proceso%20de%20acompa%C3%B1amiento." target="_blank" rel="noopener noreferrer">Consultar</a>
+          </div>
+
+          <div class="card service-card">
+            <h3>Arte abstracto</h3>
+            <p>
+              Obras que expresan una búsqueda personal y estética, conectadas con sensibilidad, identidad y presencia.
+            </p>
+            <ul class="service-benefits">
+              <li>Arte con identidad propia</li>
+              <li>Conexión entre sensibilidad y expresión</li>
+              <li>Propuesta auténtica y personal</li>
+            </ul>
+            <div class="service-price">Disponibilidad: consultar</div>
+            <a class="btn btn-primary" href="https://wa.me/5491169837841?text=Hola%20Andrea,%20vi%20tu%20arte%20en%20tu%20p%C3%A1gina%20y%20me%20gustar%C3%ADa%20hacerte%20una%20consulta." target="_blank" rel="noopener noreferrer">Consultar</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. PROCESS -->
+    <section id="process" class="section">
+      <div class="container">
+        <span class="eyebrow">Proceso</span>
+        <h2 class="section-title">Una forma simple de empezar.</h2>
+        <p class="section-text">
+          El proceso está pensado para que puedas dar el primer paso sin fricción y con claridad sobre cómo trabajar juntas.
+        </p>
+
+        <div class="process-grid">
+          <div class="card process-card">
+            <div class="step-number">1</div>
+            <h3>Primer contacto</h3>
+            <p>Me escribís por WhatsApp o reservás directamente una sesión desde la agenda online.</p>
+          </div>
+
+          <div class="card process-card">
+            <div class="step-number">2</div>
+            <h3>Sesión personalizada</h3>
+            <p>Trabajamos tu momento actual, lo que necesitás ordenar y el enfoque más útil para vos.</p>
+          </div>
+
+          <div class="card process-card">
+            <div class="step-number">3</div>
+            <h3>Claridad y movimiento</h3>
+            <p>La idea es que puedas irte con más dirección, más comprensión y un próximo paso posible.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. OPTIONAL SECTION - ARTE -->
+    <section id="art" class="section">
+      <div class="container">
+        <span class="eyebrow">Arte</span>
+        <h2 class="section-title">La creatividad también es una forma de volver a vos.</h2>
+        <p class="section-text">
+          La pintura abstracta forma parte de mi identidad y de mi manera de expresar sensibilidad, presencia y transformación.
+        </p>
+
+        <div class="optional-grid">
+          <div class="card optional-card">
+            <p style="color: var(--muted); margin-bottom: 12px;">
+              Mi arte nace desde una búsqueda personal y emocional. No es solo una producción estética: es también una forma de conectar con lo interno y dar lugar a nuevas formas de expresión.
+            </p>
+
+            <div class="art-gallery">
+              <div class="art-item" style="background-image:url('assets/art-1.jpg');"></div>
+              <div class="art-item" style="background-image:url('assets/art-2.jpg');"></div>
+              <div class="art-item" style="background-image:url('assets/art-3.jpg');"></div>
+              <div class="art-item" style="background-image:url('assets/art-4.jpg');"></div>
+            </div>
+          </div>
+
+          <!-- 7. OPTIONAL SECTION - FILOSOFÍA -->
+          <div class="card optional-card">
+            <h3 style="font-size: 28px; margin-bottom: 10px;">Filosofía</h3>
+            <p style="color: var(--muted);">
+              Creo en procesos claros, humanos y auténticos. No busco complejizar lo que ya duele: busco acompañarte a ordenar, entender y avanzar.
+            </p>
+            <ul class="philosophy-list">
+              <li>Volver a vos como punto de partida</li>
+              <li>Menos ruido, más claridad</li>
+              <li>Procesos reales y sostenibles</li>
+              <li>Una mirada sensible, práctica y humana</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. CTA SECTION -->
+    <section class="section cta-section">
+      <div class="container">
+        <div class="card cta-box">
+          <div class="cta-copy">
+            <h2>Si estás en un momento de cambio, este puede ser tu espacio para empezar.</h2>
+            <p>
+              Reservá una sesión o escribime por WhatsApp. Podemos trabajar juntas para ordenar tu proceso, recuperar claridad y empezar a crear la vida que realmente querés.
+            </p>
+          </div>
+          <a class="btn btn-primary" href="https://outlook.office.com/book/MosaNovaStudioSesiones@maginaconsulting.com/?ismsaljsauthenabled" target="_blank" rel="noopener noreferrer">Reservar sesión</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. CONTACT -->
+    <section id="contact" class="section">
+      <div class="container">
+        <span class="eyebrow">Contacto</span>
+        <h2 class="section-title">Estoy para acompañarte.</h2>
+        <p class="section-text">
+          Podés reservar tu sesión online o escribirme directamente para cualquier consulta.
+        </p>
+
+        <div class="contact-grid">
+          <div class="card contact-card">
+            <p class="contact-text">
+              Si sentís que necesitás claridad, un espacio para reenfocarte o querés consultar por sesiones y arte, escribime por el canal que te resulte más cómodo.
+            </p>
+
+            <div class="contact-item">
+              <div class="contact-label">WhatsApp</div>
+              <div class="contact-value">+54 9 11 6983-7841</div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-label">Email</div>
+              <div class="contact-value">reservas@mosanovastudio.com</div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-label">Instagram</div>
+              <div class="contact-value">@ema_artcode</div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-label">Agenda online</div>
+              <div class="contact-value">Reservá tu sesión desde Bookings</div>
+            </div>
+          </div>
+
+          <div class="card contact-card">
+            <div class="contact-actions">
+              <a class="btn btn-primary" href="https://wa.me/5491169837841?text=Hola%20Andrea,%20vi%20tu%20p%C3%A1gina%20y%20me%20gustar%C3%ADa%20consultarte%20por%20una%20sesi%C3%B3n%20o%20hacerte%20una%20pregunta." target="_blank" rel="noopener noreferrer">WhatsApp</a>
+              <a class="btn btn-secondary" href="mailto:reservas@mosanovastudio.com">Email</a>
+              <a class="btn btn-secondary" href="https://www.instagram.com/ema_artcode?igsh=MTkzN3k0dHc0cHB6ZQ==" target="_blank" rel="noopener noreferrer">Instagram</a>
+              <a class="btn btn-secondary" href="https://outlook.office.com/book/MosaNovaStudioSesiones@maginaconsulting.com/?ismsaljsauthenabled" target="_blank" rel="noopener noreferrer">Agenda online</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 10. FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <div>© 2026 MosaNova Studio. Coaching y arte para volver a vos.</div>
+      <div>
+        <a href="https://www.instagram.com/ema_artcode?igsh=MTkzN3k0dHc0cHB6ZQ==" target="_blank" rel="noopener noreferrer">Instagram</a>
+        ·
+        <a href="mailto:reservas@mosanovastudio.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
