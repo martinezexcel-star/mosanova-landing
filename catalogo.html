@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MosaNova Studio | Catálogo de workbooks y journals</title>
+  <meta
+    name="description"
+    content="Descubrí los workbooks, journals y bundles digitales de MosaNova Studio para claridad personal, decisiones conscientes y reconexión con vos."
+  />
+  <style>
+    :root {
+      --bg: #0f0f10;
+      --bg-soft: #17181a;
+      --panel: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      --panel-strong: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.03));
+      --card: rgba(255,255,255,0.03);
+      --text: #f3f3f1;
+      --muted: #b8b8b4;
+      --line: rgba(255,255,255,0.09);
+      --accent: #d9d9d4;
+      --accent-dark: #9b9b96;
+      --accent-soft: rgba(255,255,255,0.05);
+      --success: #8bc5a3;
+      --shadow: 0 18px 48px rgba(0,0,0,0.35);
+      --radius: 22px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.06), transparent 20%),
+        radial-gradient(circle at bottom right, rgba(255,255,255,0.04), transparent 18%),
+        linear-gradient(180deg, #0d0d0e 0%, #131416 45%, #101112 100%);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4 {
+      margin: 0 0 12px;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--text);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(92%, var(--max));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: rgba(15,15,16,0.82);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+      padding: 10px 0;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .brand-name {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-subtitle {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 22px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      font-weight: 600;
+      font-size: 14px;
+      transition: 0.22s ease;
+      cursor: pointer;
+      text-align: center;
+      background: transparent;
+      color: var(--text);
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      background: linear-gradient(180deg, #eeeeea, #d2d2cb);
+      color: #111;
+      border-color: transparent;
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.16);
+    }
+
+    .cart-badge {
+      min-width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: var(--text);
+      color: #111;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 0 10px;
+    }
+
+    .hero {
+      padding: 74px 0 48px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(40px, 6vw, 72px);
+      line-height: 0.96;
+      margin-bottom: 18px;
+      letter-spacing: -0.03em;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 700px;
+      margin-bottom: 24px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .hero-points {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .hero-point,
+    .hero-card,
+    .card,
+    .bundle,
+    .panel,
+    .faq-item,
+    .cart-item,
+    .empty,
+    .summary-box {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-point {
+      padding: 16px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .hero-card {
+      padding: 28px;
+      background: var(--panel-strong);
+    }
+
+    .hero-card h3 {
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+
+    .hero-card p {
+      font-size: 15px;
+      margin-bottom: 16px;
+    }
+
+    .mini-list {
+      display: grid;
+      gap: 10px;
+      padding: 0;
+      margin: 18px 0 0;
+      list-style: none;
+    }
+
+    .mini-list li {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 14px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    section { padding: 36px 0; }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 20px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      max-width: 760px;
+      margin: 0;
+    }
+
+    .section-title {
+      font-size: clamp(30px, 4vw, 52px);
+      line-height: 1.05;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .toolbar {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 0.5fr;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+
+    .input,
+    .select {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      font-size: 15px;
+      color: var(--text);
+      outline: none;
+    }
+	
+	/* ✅ FIX DROPDOWN */
+select {
+  background-color: #131416;
+  color: #f3f3f1;
+}
+
+select option {
+  background-color: #131416;
+  color: #f3f3f1;
+}
+
+    .input::placeholder { color: #98948f; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .tag-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      font-size: 12px;
+      font-weight: 700;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.03);
+      color: var(--accent);
+      border: 1px solid var(--line);
+    }
+
+    .product-title {
+      font-size: 28px;
+      line-height: 1.15;
+    }
+
+    .product-desc {
+      color: var(--muted);
+      font-size: 15px;
+      min-height: 72px;
+    }
+
+    .product-copy {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px;
+      font-size: 14px;
+      color: #d8d6d2;
+    }
+
+    .bullet-list {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-top: auto;
+      padding-top: 10px;
+    }
+
+    .price {
+      font-size: 28px;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--accent);
+    }
+
+    .old-price {
+      color: #8d8a85;
+      text-decoration: line-through;
+      font-size: 14px;
+      display: block;
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .bundle-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .bundle {
+      padding: 24px;
+      background: var(--panel-strong);
+    }
+
+    .bundle h3 {
+      font-size: 30px;
+    }
+
+    .bundle p { color: var(--muted); }
+
+    .bundle-highlight {
+      margin: 12px 0 16px;
+      padding: 12px 14px;
+      border-left: 4px solid var(--accent);
+      background: rgba(255,255,255,0.03);
+      border-radius: 10px;
+      font-size: 14px;
+      color: #dedcd8;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .panel {
+      padding: 24px;
+    }
+
+    .panel p,
+    .faq-item p {
+      color: var(--muted);
+    }
+
+    .faq {
+      display: grid;
+      gap: 12px;
+    }
+
+    .faq-item {
+      padding: 18px;
+    }
+
+    .faq-item h4 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .cta {
+      background: var(--panel-strong);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .cta p {
+      max-width: 760px;
+      margin: 0 auto 18px;
+      color: var(--muted);
+    }
+
+    .cart-panel {
+      position: fixed;
+      top: 0;
+      right: -440px;
+      width: 420px;
+      max-width: 100%;
+      height: 100vh;
+      background: #131416;
+      border-left: 1px solid var(--line);
+      box-shadow: -10px 0 30px rgba(0,0,0,0.35);
+      z-index: 100;
+      transition: right 0.25s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-panel.open { right: 0; }
+
+    .cart-header {
+      padding: 20px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .cart-body {
+      flex: 1;
+      overflow: auto;
+      padding: 18px;
+      display: grid;
+      gap: 12px;
+      align-content: start;
+    }
+
+    .cart-item {
+      padding: 14px;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .cart-item h4 {
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .cart-item small {
+      color: var(--muted);
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .cart-item-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .cart-footer {
+      border-top: 1px solid var(--line);
+      padding: 18px;
+      display: grid;
+      gap: 12px;
+      background: #131416;
+    }
+
+    .summary-box {
+      padding: 14px;
+      font-size: 14px;
+      color: #ddd9d3;
+      white-space: pre-wrap;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .empty {
+      border: 1px dashed var(--line);
+      padding: 26px;
+      color: var(--muted);
+      text-align: center;
+      background: rgba(255,255,255,0.02);
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.35);
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.2s ease;
+      z-index: 90;
+    }
+
+    .overlay.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 0 50px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .muted { color: var(--muted); }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .about,
+      .bundle-grid,
+      .grid,
+      .toolbar,
+      .hero-points {
+        grid-template-columns: 1fr;
+      }
+
+      .nav { justify-content: center; }
+    }
+
+    @media (max-width: 640px) {
+      .hero { padding-top: 46px; }
+      .hero h1 { font-size: 44px; }
+      .product-title { font-size: 24px; }
+      .bundle h3 { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay" id="overlay" onclick="toggleCart(false)"></div>
+
+  <div class="cart-panel" id="cartPanel">
+    <div class="cart-header">
+      <div>
+        <h3>Tu selección</h3>
+        <div class="muted">Revisá tus productos antes de enviar el pedido</div>
+      </div>
+      <button class="btn btn-secondary" onclick="toggleCart(false)">Cerrar</button>
+    </div>
+
+    <div class="cart-body" id="cartItems"></div>
+
+    <div class="cart-footer">
+      <div><strong>Total:</strong> <span id="cartTotal">$ 0</span></div>
+      <button class="btn btn-primary" onclick="finalizeOrder()">Finalizar pedido por WhatsApp</button>
+      <button class="btn btn-secondary" onclick="clearCart()">Vaciar carrito</button>
+      <div id="orderSummary" class="summary-box" style="display:none;"></div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#top" class="brand">
+        <span class="brand-name">MosaNova Studio</span>
+        <span class="brand-subtitle">Workbooks y journals para volver a vos</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html">Inicio</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#bundles">Bundles</a>
+        <a href="#sobre">Sobre MosaNova</a>
+        <a href="#faq">Preguntas frecuentes</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn btn-secondary" onclick="toggleCart(true)">Ver carrito</button>
+        <div class="cart-badge" id="cartCount">0</div>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Recursos digitales para claridad, introspección y reconexión</div>
+          <h1>Elegí el workbook que acompañe tu momento y te ayude a volver a vos</h1>
+          <p>
+            En este catálogo vas a encontrar journals, workbooks y bundles digitales pensados para
+            ordenar tu mundo interno, tomar decisiones con más claridad, reconectar con tu esencia y crear pequeños movimientos reales en tu vida.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#catalogo">Ver catálogo</a>
+            <a class="btn btn-secondary" href="#bundles">Explorar bundles</a>
+            <a class="btn btn-secondary" href="index.html">Conocer MosaNova</a>
+          </div>
+
+          <div class="hero-points">
+            <div class="hero-point"><strong>Formato digital</strong><br>Productos listos para descargar, leer o imprimir a tu ritmo.</div>
+            <div class="hero-point"><strong>Enfoque humano</strong><br>Contenido claro, sensible y práctico, sin complejidad innecesaria.</div>
+            <div class="hero-point"><strong>Ideal para regalar o empezar</strong><br>Podés elegir un PDF suelto o un bundle más completo.</div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <h3>Una forma simple de acompañarte también desde lo digital</h3>
+          <p>
+            Este catálogo reúne recursos creados para personas que están atravesando momentos de cambio, búsqueda o necesidad de mayor claridad.
+            Cada producto fue pensado para sentirse cálido, usable y coherente con la esencia de MosaNova.
+          </p>
+
+          <ul class="mini-list">
+            <li>✓ Workbooks con ejercicios guiados</li>
+            <li>✓ Journals para reflexión y seguimiento</li>
+            <li>✓ Bundles para procesos más completos</li>
+            <li>✓ Compra simple por WhatsApp</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="catalogo">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">Catálogo digital</h2>
+            <p>
+              Podés buscar por palabra clave o filtrar por tipo de producto. La estructura ya queda lista para seguir sumando nuevos PDFs, journals y bundles más adelante.
+            </p>
+          </div>
+        </div>
+
+        <div class="toolbar">
+          <input id="searchInput" class="input" type="text" placeholder="Buscar por nombre, tema o categoría..." />
+          <select id="categoryFilter" class="select">
+            <option value="all">Todas las categorías</option>
+            <option value="Workbook">Workbook</option>
+            <option value="Journal">Journal</option>
+            <option value="Clarity">Claridad</option>
+            <option value="Self-discovery">Autodescubrimiento</option>
+            <option value="Decision making">Decisiones</option>
+            <option value="Habits">Hábitos</option>
+          </select>
+          <button class="btn btn-secondary" onclick="resetFilters()">Limpiar filtros</button>
+        </div>
+
+        <div class="grid" id="productGrid"></div>
+      </div>
+    </section>
+
+    <section id="bundles">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">Bundles recomendados</h2>
+            <p>
+              Los bundles están pensados para quienes quieren una experiencia más completa y también para que puedas vender mejor combinando varios productos en una sola propuesta.
+            </p>
+          </div>
+        </div>
+
+        <div class="bundle-grid">
+          <div class="bundle">
+            <div class="tag-row">
+              <span class="tag">Bundle</span>
+              <span class="tag">Claridad</span>
+            </div>
+            <h3>Bundle Claridad Personal</h3>
+            <p>
+              Una selección pensada para ordenar pensamientos, bajar el ruido mental y reconectar con una mirada más clara sobre tu momento actual.
+            </p>
+            <div class="bundle-highlight">
+              Incluye: Volver a vos, Ordenar tu mente y Brain dump guiado.
+            </div>
+            <ul class="bullet-list">
+              <li>Ideal para momentos de confusión o sobrecarga</li>
+              <li>Muy buen bundle de entrada a MosaNova</li>
+              <li>Combina introspección, orden y descarga mental</li>
+            </ul>
+            <div class="price-row">
+              <div>
+                <span class="old-price">$ 34.700</span>
+                <div class="price">$ 27.900</div>
+              </div>
+              <div class="card-actions">
+                <button class="btn btn-primary" onclick="addToCartById('B001')">Agregar al carrito</button>
+                <a
+                  class="btn btn-secondary"
+                  href="https://wa.me/5491162842880?text=Hola%20Andrea,%20quiero%20comprar%20el%20Bundle%20Claridad%20Personal%20de%20MosaNova."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >Comprar directo</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="bundle">
+            <div class="tag-row">
+              <span class="tag">Bundle</span>
+              <span class="tag">Dirección</span>
+            </div>
+            <h3>Bundle Decisiones y Dirección</h3>
+            <p>
+              Una propuesta para quienes sienten que necesitan reenfocarse, tomar decisiones más conscientes y transformar claridad en movimiento real.
+            </p>
+            <div class="bundle-highlight">
+              Incluye: Tomar decisiones con claridad, Redefinir tu camino y Plan de acción personal.
+            </div>
+            <ul class="bullet-list">
+              <li>Ideal para cambios personales o profesionales</li>
+              <li>Combina reflexión con acción práctica</li>
+              <li>Muy sólido como bundle principal</li>
+            </ul>
+            <div class="price-row">
+              <div>
+                <span class="old-price">$ 39.700</span>
+                <div class="price">$ 31.900</div>
+              </div>
+              <div class="card-actions">
+                <button class="btn btn-primary" onclick="addToCartById('B002')">Agregar al carrito</button>
+                <a
+                  class="btn btn-secondary"
+                  href="https://wa.me/5491162842880?text=Hola%20Andrea,%20quiero%20comprar%20el%20Bundle%20Decisiones%20y%20Direcci%C3%B3n%20de%20MosaNova."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >Comprar directo</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="bundle">
+            <div class="tag-row">
+              <span class="tag">Bundle</span>
+              <span class="tag">Profundo</span>
+            </div>
+            <h3>Bundle Reconexión Profunda</h3>
+            <p>
+              Un recorrido más introspectivo para quienes quieren volver a su esencia, identificar bloqueos y sostener una práctica de reflexión más constante.
+            </p>
+            <div class="bundle-highlight">
+              Incluye: Reconectar con tu esencia, Desbloquearte emocionalmente y Diario de claridad 30 días.
+            </div>
+            <ul class="bullet-list">
+              <li>Ideal para etapas de búsqueda personal</li>
+              <li>Combina profundidad y continuidad</li>
+              <li>Muy bueno como bundle premium</li>
+            </ul>
+            <div class="price-row">
+              <div>
+                <span class="old-price">$ 41.700</span>
+                <div class="price">$ 33.500</div>
+              </div>
+              <div class="card-actions">
+                <button class="btn btn-primary" onclick="addToCartById('B003')">Agregar al carrito</button>
+                <a
+                  class="btn btn-secondary"
+                  href="https://wa.me/5491162842880?text=Hola%20Andrea,%20quiero%20comprar%20el%20Bundle%20Reconexi%C3%B3n%20Profunda%20de%20MosaNova."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >Comprar directo</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="bundle">
+            <div class="tag-row">
+              <span class="tag">Bundle</span>
+              <span class="tag">Reset</span>
+            </div>
+            <h3>Bundle Reset Mental</h3>
+            <p>
+              Una combinación simple, útil y liviana para bajar saturación mental, generar espacio interno y construir una rutina más amable con vos.
+            </p>
+            <div class="bundle-highlight">
+              Incluye: Ordenar tu mente, Brain dump guiado y Rutina de reconexión.
+            </div>
+            <ul class="bullet-list">
+              <li>Ideal como regalo o primer acercamiento</li>
+              <li>Muy buen bundle de quick win</li>
+              <li>Perfecto para quienes necesitan bajar ruido</li>
+            </ul>
+            <div class="price-row">
+              <div>
+                <span class="old-price">$ 32.300</span>
+                <div class="price">$ 25.900</div>
+              </div>
+              <div class="card-actions">
+                <button class="btn btn-primary" onclick="addToCartById('B004')">Agregar al carrito</button>
+                <a
+                  class="btn btn-secondary"
+                  href="https://wa.me/5491162842880?text=Hola%20Andrea,%20quiero%20comprar%20el%20Bundle%20Reset%20Mental%20de%20MosaNova."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >Comprar directo</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">Sobre este catálogo</h2>
+            <p>
+              Esta tienda digital extiende la propuesta de MosaNova Studio con recursos prácticos para quienes buscan claridad, introspección y pequeños movimientos de transformación.
+            </p>
+          </div>
+        </div>
+
+        <div class="about">
+          <div class="panel">
+            <h3>Una forma digital de acompañar procesos personales</h3>
+            <p>
+              Los productos de este catálogo fueron pensados para acompañar momentos de cambio, orden interno y reconexión personal desde un formato accesible y usable.
+              Son materiales que invitan a pausar, mirar con más honestidad lo que está pasando y generar pasos posibles.
+            </p>
+            <p>
+              No buscan complejizar. Buscan ayudarte a pensar mejor, sentir con más claridad y avanzar con más coherencia.
+            </p>
+          </div>
+
+          <div class="panel">
+            <h3>Qué vas a encontrar</h3>
+            <ul class="bullet-list">
+              <li>Workbooks con ejercicios guiados y enfoque práctico</li>
+              <li>Journals digitales para sostener hábitos de reflexión</li>
+              <li>Bundles armados según necesidades concretas</li>
+              <li>Una experiencia simple de compra por WhatsApp</li>
+            </ul>
+            <p style="margin-top:14px;">
+              Todo el contenido sigue la identidad de MosaNova: claridad, sensibilidad, humanidad y una mirada realista.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">Preguntas frecuentes</h2>
+            <p>
+              Esta sección ayuda a bajar fricción antes de la compra y a ordenar expectativas sobre el formato de los productos.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq">
+          <div class="faq-item">
+            <h4>¿Cómo recibo el producto?</h4>
+            <p>
+              Una vez que envías tu pedido por WhatsApp, Andrea puede coordinar el envío del archivo digital correspondiente.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h4>¿Son productos físicos?</h4>
+            <p>
+              No. Son productos digitales en PDF, pensados para leer en pantalla, imprimir o completar de forma personal según el caso.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h4>¿Necesito experiencia previa?</h4>
+            <p>
+              No necesariamente. Los materiales están pensados para ser claros, guiados y accesibles incluso si estás empezando este tipo de trabajo personal.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h4>¿Puedo comprar varios productos juntos?</h4>
+            <p>
+              Sí. Podés usar el carrito para armar tu selección y luego enviar el detalle completo por WhatsApp.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h4>¿Estos materiales reemplazan una sesión o acompañamiento?</h4>
+            <p>
+              No. Son recursos complementarios de reflexión y trabajo personal. Si querés acompañamiento más personalizado, podés escribirle a Andrea.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="cta">
+          <h2>Elegí el recurso que mejor acompañe tu momento</h2>
+          <p>
+            Ya sea que busques claridad, reconexión, foco o una forma más ordenada de mirar lo que te pasa, en este catálogo vas a encontrar materiales digitales pensados para ayudarte desde un lugar práctico y humano.
+          </p>
+          <a class="btn btn-primary" href="#catalogo">Explorar catálogo</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <div>MosaNova Studio · Catálogo de workbooks y journals</div>
+      <div class="muted">Podés editar textos, precios, productos y links de compra directamente en este archivo HTML.</div>
+    </div>
+  </footer>
+
+  <script>
+    const whatsappNumber = '5491162842880';
+
+    const products = [
+      {
+        id: 'P300',
+        name: 'Volver a vos',
+        category: 'Workbook',
+        theme: 'Clarity',
+        price: 11900,
+        oldPrice: 14900,
+        type: 'PDF',
+        shortDesc: 'Un workbook para ordenar pensamientos, bajar ruido interno y reconectar con una mirada más clara sobre tu presente.',
+        copy: 'Ideal para quienes sienten que necesitan pausar, mirar con honestidad lo que les pasa y recuperar un sentido de dirección más propio.',
+        bullets: [
+          'Ejercicios guiados de claridad personal',
+          'Ideal para momentos de cambio o saturación',
+          'Muy buen producto de entrada al universo MosaNova'
+        ]
+      },
+      {
+        id: 'P301',
+        name: 'Ordenar tu mente',
+        category: 'Workbook',
+        theme: 'Clarity',
+        price: 10900,
+        oldPrice: 13500,
+        type: 'PDF',
+        shortDesc: 'Una guía práctica para bajar saturación mental, organizar ideas y recuperar foco.',
+        copy: 'Pensado para personas con sobrecarga mental, demasiados pendientes o dificultad para ordenar lo que están sintiendo y pensando.',
+        bullets: [
+          'Descarga mental y organización interna',
+          'Muy útil para etapas de mucho ruido',
+          'Simple, claro y accionable'
+        ]
+      },
+      {
+        id: 'P302',
+        name: 'Tomar decisiones con claridad',
+        category: 'Workbook',
+        theme: 'Decision making',
+        price: 12900,
+        oldPrice: 15900,
+        type: 'PDF',
+        shortDesc: 'Un workbook para tomar decisiones más conscientes, con menos confusión y más coherencia personal.',
+        copy: 'Ideal para quienes están frente a elecciones personales o profesionales y necesitan ordenar criterios, miedos y posibilidades.',
+        bullets: [
+          'Frameworks simples para decidir mejor',
+          'Muy útil en cambios personales o laborales',
+          'Combina reflexión y acción concreta'
+        ]
+      },
+      {
+        id: 'P303',
+        name: 'Redefinir tu camino',
+        category: 'Workbook',
+        theme: 'Self-discovery',
+        price: 13900,
+        oldPrice: 17500,
+        type: 'PDF',
+        shortDesc: 'Una propuesta más profunda para revisar dirección, propósito y próximos pasos desde una mirada más honesta.',
+        copy: 'Pensado para quienes sienten que algo necesita cambiar y buscan una forma más clara de redefinir hacia dónde quieren ir.',
+        bullets: [
+          'Revisión de dirección personal',
+          'Ideal para momentos de transición',
+          'Workbook con profundidad y estructura'
+        ]
+      },
+      {
+        id: 'P304',
+        name: 'Diario de claridad 30 días',
+        category: 'Journal',
+        theme: 'Habits',
+        price: 11900,
+        oldPrice: 14900,
+        type: 'PDF',
+        shortDesc: 'Un journal guiado para sostener una práctica diaria de reflexión y conexión personal durante 30 días.',
+        copy: 'Ideal para quienes quieren incorporar una rutina simple de escritura y observación para sentirse más presentes y ordenados.',
+        bullets: [
+          'Formato diario y sostenido',
+          'Ideal para crear hábito de journaling',
+          'Muy bueno como complemento de otros workbooks'
+        ]
+      },
+      {
+        id: 'P305',
+        name: 'Desbloquearte emocionalmente',
+        category: 'Workbook',
+        theme: 'Self-discovery',
+        price: 12900,
+        oldPrice: 15900,
+        type: 'PDF',
+        shortDesc: 'Una guía para identificar bloqueos, entender patrones y abrir espacio a nuevas posibilidades internas.',
+        copy: 'Pensado para personas que sienten estancamiento, repetición o dificultad para avanzar con más liviandad.',
+        bullets: [
+          'Explora bloqueos y resistencias',
+          'Propone reflexión con contención',
+          'Muy buen producto para bundle profundo'
+        ]
+      },
+      {
+        id: 'P306',
+        name: 'Reconectar con tu esencia',
+        category: 'Workbook',
+        theme: 'Self-discovery',
+        price: 13900,
+        oldPrice: 17500,
+        type: 'PDF',
+        shortDesc: 'Un workbook introspectivo para volver a lo que te hace sentido y reconectar con una versión más auténtica de vos.',
+        copy: 'Ideal para etapas en las que sentís desconexión, desalineación o necesidad de volver a escucharte más profundamente.',
+        bullets: [
+          'Trabajo de esencia, identidad y valores',
+          'Muy alineado a la propuesta de MosaNova',
+          'Ideal para procesos más profundos'
+        ]
+      },
+      {
+        id: 'P307',
+        name: 'Plan de acción personal',
+        category: 'Workbook',
+        theme: 'Decision making',
+        price: 11900,
+        oldPrice: 14500,
+        type: 'PDF',
+        shortDesc: 'Una herramienta práctica para transformar claridad en decisiones concretas y pasos posibles.',
+        copy: 'Pensado para quienes no quieren quedarse solo en la reflexión y necesitan bajar ideas a un plan realista y accionable.',
+        bullets: [
+          'Define próximos pasos concretos',
+          'Ideal para cerrar procesos de claridad',
+          'Muy buen upsell de otros workbooks'
+        ]
+      },
+      {
+        id: 'P308',
+        name: 'Brain dump guiado',
+        category: 'Workbook',
+        theme: 'Clarity',
+        price: 9900,
+        oldPrice: 12500,
+        type: 'PDF',
+        shortDesc: 'Una herramienta simple para descargar pensamientos, desocupar la mente y recuperar aire interno.',
+        copy: 'Ideal para personas que se sienten mentalmente saturadas y necesitan poner afuera lo que tienen girando adentro.',
+        bullets: [
+          'Descarga mental estructurada',
+          'Simple, usable y muy práctico',
+          'Excelente producto quick win'
+        ]
+      },
+      {
+        id: 'P309',
+        name: 'Rutina de reconexión',
+        category: 'Workbook',
+        theme: 'Habits',
+        price: 10500,
+        oldPrice: 13200,
+        type: 'PDF',
+        shortDesc: 'Una guía para construir una rutina simple y sostenible de reconexión personal.',
+        copy: 'Pensada para personas ocupadas que necesitan pequeños rituales o hábitos para volver a sí mismas con más frecuencia.',
+        bullets: [
+          'Rutina simple y realista',
+          'Ideal para sostener cambios suaves',
+          'Muy buena opción de regalo digital'
+        ]
+      }
+    ];
+
+    const bundles = [
+      {
+        id: 'B001',
+        name: 'Bundle Claridad Personal',
+        category: 'Bundle',
+        theme: 'Clarity',
+        price: 27900,
+        oldPrice: 34700,
+        type: 'Bundle',
+        shortDesc: 'Volver a vos + Ordenar tu mente + Brain dump guiado'
+      },
+      {
+        id: 'B002',
+        name: 'Bundle Decisiones y Dirección',
+        category: 'Bundle',
+        theme: 'Decision making',
+        price: 31900,
+        oldPrice: 39700,
+        type: 'Bundle',
+        shortDesc: 'Tomar decisiones con claridad + Redefinir tu camino + Plan de acción personal'
+      },
+      {
+        id: 'B003',
+        name: 'Bundle Reconexión Profunda',
+        category: 'Bundle',
+        theme: 'Self-discovery',
+        price: 33500,
+        oldPrice: 41700,
+        type: 'Bundle',
+        shortDesc: 'Reconectar con tu esencia + Desbloquearte emocionalmente + Diario de claridad 30 días'
+      },
+      {
+        id: 'B004',
+        name: 'Bundle Reset Mental',
+        category: 'Bundle',
+        theme: 'Clarity',
+        price: 25900,
+        oldPrice: 32300,
+        type: 'Bundle',
+        shortDesc: 'Ordenar tu mente + Brain dump guiado + Rutina de reconexión'
+      }
+    ];
+
+    let cart = [];
+
+    const productGrid = document.getElementById('productGrid');
+    const cartItemsEl = document.getElementById('cartItems');
+    const cartCountEl = document.getElementById('cartCount');
+    const cartTotalEl = document.getElementById('cartTotal');
+    const searchInput = document.getElementById('searchInput');
+    const categoryFilter = document.getElementById('categoryFilter');
+    const orderSummaryEl = document.getElementById('orderSummary');
+
+    function formatMoney(value) {
+      return '$ ' + value.toLocaleString('es-AR');
+    }
+
+    function buildWhatsAppLink(message) {
+      return 'https://wa.me/' + whatsappNumber + '?text=' + encodeURIComponent(message);
+    }
+
+    function directBuyMessage(item) {
+      return `Hola Andrea, quiero comprar "${item.name}" de MosaNova Studio por ${formatMoney(item.price)}.`;
+    }
+
+    function renderProducts() {
+      const search = searchInput.value.toLowerCase().trim();
+      const filter = categoryFilter.value;
+
+      const filtered = products.filter((p) => {
+        const matchesSearch =
+          p.name.toLowerCase().includes(search) ||
+          p.shortDesc.toLowerCase().includes(search) ||
+          p.theme.toLowerCase().includes(search) ||
+          p.category.toLowerCase().includes(search);
+
+        const matchesFilter =
+          filter === 'all' ||
+          p.category === filter ||
+          p.theme === filter;
+
+        return matchesSearch && matchesFilter;
+      });
+
+      if (filtered.length === 0) {
+        productGrid.innerHTML = `
+          <div class="panel" style="grid-column:1/-1;">
+            <h3>No encontramos productos con esos filtros</h3>
+            <p class="muted">Probá con otra palabra o quitá los filtros para ver todo el catálogo.</p>
+          </div>
+        `;
+        return;
+      }
+
+      productGrid.innerHTML = filtered.map((p) => `
+        <article class="card">
+          <div class="tag-row">
+            <span class="tag">${p.category}</span>
+            <span class="tag">${p.theme}</span>
+            <span class="tag">${p.type}</span>
+          </div>
+
+          <h3 class="product-title">${p.name}</h3>
+          <p class="product-desc">${p.shortDesc}</p>
+
+          <div class="product-copy">${p.copy}</div>
+
+          <ul class="bullet-list">
+            ${p.bullets.map((b) => `<li>${b}</li>`).join('')}
+          </ul>
+
+          <div class="price-row">
+            <div>
+              <span class="old-price">${formatMoney(p.oldPrice)}</span>
+              <div class="price">${formatMoney(p.price)}</div>
+            </div>
+          </div>
+
+          <div class="card-actions">
+            <button class="btn btn-primary" onclick="addToCart('${p.id}')">Agregar al carrito</button>
+            <a
+              class="btn btn-secondary"
+              href="${buildWhatsAppLink(directBuyMessage(p))}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Comprar directo</a>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    function addToCart(id) {
+      const item = products.find((p) => p.id === id);
+      if (!item) return;
+      cart.push(item);
+      updateCart();
+      toggleCart(true);
+    }
+
+    function addToCartById(id) {
+      const item = bundles.find((b) => b.id === id) || products.find((p) => p.id === id);
+      if (!item) return;
+      cart.push(item);
+      updateCart();
+      toggleCart(true);
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      updateCart();
+    }
+
+    function clearCart() {
+      cart = [];
+      updateCart();
+      orderSummaryEl.style.display = 'none';
+      orderSummaryEl.textContent = '';
+    }
+
+    function updateCart() {
+      cartCountEl.textContent = cart.length;
+      const total = cart.reduce((sum, item) => sum + item.price, 0);
+      cartTotalEl.textContent = formatMoney(total);
+
+      if (cart.length === 0) {
+        cartItemsEl.innerHTML = '<div class="empty">Todavía no agregaste productos. Explorá el catálogo y sumá lo que quieras comprar.</div>';
+        return;
+      }
+
+      cartItemsEl.innerHTML = cart.map((item, index) => `
+        <div class="cart-item">
+          <h4>${item.name}</h4>
+          <small>${item.category} · ${item.theme}</small>
+          <div class="cart-item-row">
+            <strong>${formatMoney(item.price)}</strong>
+            <button class="btn btn-secondary" onclick="removeFromCart(${index})">Quitar</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function toggleCart(open) {
+      const panel = document.getElementById('cartPanel');
+      const overlay = document.getElementById('overlay');
+
+      if (open) {
+        panel.classList.add('open');
+        overlay.classList.add('show');
+      } else {
+        panel.classList.remove('open');
+        overlay.classList.remove('show');
+      }
+    }
+
+    function finalizeOrder() {
+      if (cart.length === 0) {
+        alert('Tu carrito está vacío.');
+        return;
+      }
+
+      const total = cart.reduce((sum, item) => sum + item.price, 0);
+      const lines = cart.map((item, i) => `${i + 1}. ${item.name} - ${formatMoney(item.price)}`);
+      const summary =
+`Hola Andrea, quiero hacer este pedido de MosaNova Studio:
+
+${lines.join('\n')}
+
+Total: ${formatMoney(total)}
+
+¿Me indicás cómo seguir con la compra?`;
+
+      orderSummaryEl.style.display = 'block';
+      orderSummaryEl.textContent = summary;
+
+      window.open(buildWhatsAppLink(summary), '_blank');
+    }
+
+    function resetFilters() {
+      searchInput.value = '';
+      categoryFilter.value = 'all';
+      renderProducts();
+    }
+
+    searchInput.addEventListener('input', renderProducts);
+    categoryFilter.addEventListener('change', renderProducts);
+
+    renderProducts();
+    updateCart();
+  </script>
+</body>
+</html>
