@@ -298,7 +298,7 @@ function renderCustomers(items) {
         <td>${i.Title || ""}</td>
         <td>${i.Email || ""}</td>
         <td>${i.Phone || ""}</td>
-        <td>${i.CustomerStatus || ""}</td>
+        <td>${i.CustomerStatus?.Value || i.CustomerStatus || ""}</td>
       </tr>
     `;
     tbody.innerHTML += row;
