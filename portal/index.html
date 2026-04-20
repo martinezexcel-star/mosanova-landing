@@ -247,5 +247,47 @@
       </div>
     </div>
   </div>
+
+  <script>
+const apiUrl = "PEGAR_URL_DEL_FLOW";
+
+async function loadCustomers() {
+  try {
+    const res = await fetch(apiUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({})
+    });
+
+    const data = await res.json();
+    renderCustomers(data);
+
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+function renderCustomers(items) {
+  const tbody = document.querySelector("tbody");
+  tbody.innerHTML = "";
+
+  items.forEach(i => {
+    const row = `
+      <tr>
+        <td>${i.Title || ""}</td>
+        <td>${i.Email || ""}</td>
+        <td>${i.Phone || ""}</td>
+        <td>${i.CustomerStatus || ""}</td>
+      </tr>
+    `;
+    tbody.innerHTML += row;
+  });
+}
+
+window.onload = loadCustomers;
+</script>
+  
 </body>
 </html>
