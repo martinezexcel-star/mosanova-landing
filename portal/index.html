@@ -249,7 +249,7 @@
   </div>
 
   <script>
-const apiUrl = "https://default27041e63d59d42daa5345a48c01920.21.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/218994d92d7b4e709a64797cbe493847/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=G3RflhoDOkuGXQCVc_fmV0gpL4MfNfS7TrmZ9dWFiMo";
+const apiUrl = "ACA_PEGA_LA_URL_REAL_DEL_FLOW";
 
 async function loadCustomers() {
   try {
@@ -261,17 +261,36 @@ async function loadCustomers() {
       body: JSON.stringify({})
     });
 
+    if (!res.ok) {
+      throw new Error(`HTTP ${res.status}`);
+    }
+
     const data = await res.json();
     renderCustomers(data);
 
   } catch (err) {
     console.error(err);
+    const tbody = document.querySelector("tbody");
+    tbody.innerHTML = `
+      <tr>
+        <td colspan="4">Error loading customers: ${err.message}</td>
+      </tr>
+    `;
   }
 }
 
 function renderCustomers(items) {
   const tbody = document.querySelector("tbody");
   tbody.innerHTML = "";
+
+  if (!Array.isArray(items) || items.length === 0) {
+    tbody.innerHTML = `
+      <tr>
+        <td colspan="4">No customers found.</td>
+      </tr>
+    `;
+    return;
+  }
 
   items.forEach(i => {
     const row = `
@@ -287,7 +306,6 @@ function renderCustomers(items) {
 }
 
 window.onload = loadCustomers;
-</script>
-  
+</script>  
 </body>
 </html>
